@@ -1,8 +1,12 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { Provider, inject } from 'mobx-react'
-import Header from './components/Header'
 import Spinkit from 'react-spinkit'
+import 'antd/dist/antd.min.css'
+import { Layout } from 'antd'
+import MenuBar from './components/MenuBar'
+
+const { Header, Content, Footer, Sider } = Layout;
 
 import Home from './pages/home'
 const About = lazy(() => import('./pages/about'))
@@ -18,19 +22,29 @@ function WaitingComponent(Component) {
 
 export default class App extends React.Component {
 
-  componentDidMount() {
-    import('./pages/home').then(res => console.log(res))
-  }
-
   render() {
     return (
       <BrowserRouter basename="/preview/asd">
-        <Header></Header>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={WaitingComponent(About)} />
-          <Route exact path="/topics" component={WaitingComponent(Topics)} />
-        </Switch>
+        <Layout style={{ minHeight: '100vh' }}>
+          <Sider width={200} style={{ background: '#555' }}>
+
+          </Sider>
+          <Layout>
+            <Header style={{ background: '#fff', padding: 0 }}>
+              
+            </Header>
+            <Content style={{ margin: '0 16px' }}>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={WaitingComponent(About)} />
+                <Route exact path="/topics" component={WaitingComponent(Topics)} />
+              </Switch>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}>
+              footer
+          </Footer>
+          </Layout>
+        </Layout>
       </BrowserRouter>
     )
   }

@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "antd": "^3.15.1",
     "mobx": "^4.9.3",
     "mobx-react": "^5.4.3",
     "normalize.css": "^8.0.1",
@@ -35,6 +36,7 @@
     "autodll-webpack-plugin": "^0.4.2",
     "autoprefixer": "^9.5.0",
     "babel-loader": "^8.0.5",
+    "babel-plugin-import": "^1.11.0",
     "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^2.0.1",
     "cross-env": "^5.2.0",
